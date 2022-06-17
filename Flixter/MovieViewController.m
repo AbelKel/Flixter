@@ -10,7 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
-@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) NSArray *fileredData;
 @property (strong, nonatomic) NSArray *filteredMovie;
 @property (nonatomic, strong) NSArray *movies; // array to populate with movies and their details that come along with them
@@ -27,11 +27,14 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.search.delegate = self;
+
     [self fetchMovies];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.activityIndicator startAnimating]; // enableing movement in the animation
+    self.filteredMovie = self.fileredData;
 }
     
 - (void)fetchMovies{
@@ -99,6 +102,26 @@
     NSDictionary *dataToPass = self.fileredData[myIndexPath.row];
     DetailsViewController *detailVC = [segue destinationViewController];
     detailVC.detailDict = dataToPass;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject containsString:searchText];
+        }];
+        self.filteredMovie = [self.movies filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredMovie);
+        
+    }
+    else {
+        self.filteredMovie = self.movies;
+    }
+    
+    [self.tableView reloadData];
+ 
 }
 
 
