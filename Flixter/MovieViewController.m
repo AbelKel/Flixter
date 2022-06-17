@@ -12,10 +12,12 @@
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray *fileredData;
+@property (strong, nonatomic) NSArray *filteredMovie;
 @property (nonatomic, strong) NSArray *movies; // array to populate with movies and their details that come along with them
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UISearchBar *search;
 
 @end
 
