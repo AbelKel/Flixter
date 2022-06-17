@@ -12,7 +12,7 @@
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray *fileredData;
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *movies; // array to populate with movies and their details that come along with them
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -23,15 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
     [self fetchMovies];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    [self.activityIndicator startAnimating];
+    [self.activityIndicator startAnimating]; // enableing movement in the animation
 }
     
 - (void)fetchMovies{
@@ -44,10 +42,10 @@
                    NSLog(@"%@", [error localizedDescription]);
                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No internet connection detected"
                                                   message:@"error 001"
-                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                                  preferredStyle:UIAlertControllerStyleAlert]; // pop up altert
                     
                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault
-                      handler:^(UIAlertAction * action) {}];
+                      handler:^(UIAlertAction * action) {}]; //"Try again" button
                     
                    [alert addAction:defaultAction];
                    [self presentViewController:alert animated:YES completion:nil];
@@ -63,12 +61,10 @@
                    [self.tableView reloadData];
                 }
             
-            [self.refreshControl endRefreshing];
+            [self.refreshControl endRefreshing]; // ending refreshing with the assumption that there is an internet connection
                }];
         [task resume];
         }
-
-
 
     
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -81,22 +77,20 @@
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"overview"];
     cell.detailsLabel.text = movie[@"title"];
-    
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString]; // link formation
     cell.posterView.image = nil;
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    [cell.posterView setImageWithURL: posterURL];
+    [cell.posterView setImageWithURL: posterURL]; // setting image
     //cell.textLabel.text = movie[@"title"];
     return cell;
 }
 
-//NSLog(@"%@", [NSString stringWithFormat:@"row:%d, section %d", indexPath.row, indexPath.section]);
-
 
 #pragma mark - Navigation
 
+// Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UITableViewCell *cell = sender;
     NSIndexPath *myIndexPath = [self.tableView indexPathForCell:cell];
