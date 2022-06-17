@@ -32,9 +32,15 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     self.BigPosterView.image = nil;
     self.SmallPosterView.image = nil;
-    
-    [self.BigPosterView setImageWithURL:posterURL];
     [self.SmallPosterView setImageWithURL:posterURL];
+    
+    
+    NSString *posterURLStringBig = self.detailDict[@"backdrop_path"];
+    NSString *fullPosterURLStringBig = [baseURLString stringByAppendingString:posterURLStringBig];
+    NSURL *posterURLBig = [NSURL URLWithString:fullPosterURLStringBig];
+
+    [self.BigPosterView setImageWithURL:posterURLBig];
+    
 
 }
 

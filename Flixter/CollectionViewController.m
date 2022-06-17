@@ -36,15 +36,6 @@ static NSString * const reuseIdentifier = @"Cell";
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                if (error != nil) {
                    NSLog(@"%@", [error localizedDescription]);
-                   UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No internet connection detected"
-                                                  message:@"error 001"
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-                    
-                   UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault
-                      handler:^(UIAlertAction * action) {}];
-                    
-                   [alert addAction:defaultAction];
-                   [self presentViewController:alert animated:YES completion:nil];
                }
                else {
                    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -80,28 +71,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [cell.cellView setImageWithURL: posterURL];
     return cell;
 }
-
-- (void)viewDidLayoutSubviews {
-   [super viewDidLayoutSubviews];
-
-    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.flowLayout.minimumLineSpacing = 0;
-    self.flowLayout.minimumInteritemSpacing = 0;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10);
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    int totalwidth = self.collectionView.bounds.size.width;
-    int numberOfCellsPerRow = 3;
-    int oddEven = indexPath.row / numberOfCellsPerRow % 2;
-    int dimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
-    if (oddEven == 0) {
-        return CGSizeMake(dimensions, dimensions);
-    } else {
-        return CGSizeMake(dimensions, dimensions / 2);
-    }
-}
-
 #pragma mark <UICollectionViewDelegate>
 
 
