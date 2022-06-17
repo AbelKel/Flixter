@@ -104,6 +104,7 @@
     detailVC.detailDict = dataToPass;
 }
 
+// search bar does not work
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {
