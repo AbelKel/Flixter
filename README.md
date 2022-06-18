@@ -43,10 +43,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-https://user-images.githubusercontent.com/96321082/174416371-142cb9fa-e759-472c-8134-1bcee08a4467.mp4
-
-
-GIF created with [Kap](https://getkap.co/).
+GIF created with [Kap](- https://media.giphy.com/media/JqBpvxbC3vQvhXWKXV/giphy.gif).
 
 ## Notes
 
