@@ -43,7 +43,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-GIF created with [Kap](- https://media.giphy.com/media/JqBpvxbC3vQvhXWKXV/giphy.gif).
+![giphy](https://user-images.githubusercontent.com/96321082/174454638-12960d2c-5941-42b2-b363-918c6331f39b.gif)
+
+GIF created with [giphy](- https://media.giphy.com/media/JqBpvxbC3vQvhXWKXV/giphy.gif).
 
 ## Notes
 
