@@ -159,27 +159,17 @@
 		D94F22BC285A4D2500E22457 /* Flixter */ = {
 			isa = PBXGroup;
 			children = (
+				D9B21FBD285FAC550019191D /* View Controllers */,
+				D9B21FBC285FAC480019191D /* Cells */,
 				D94F22BD285A4D2500E22457 /* AppDelegate.h */,
 				D94F22BE285A4D2500E22457 /* AppDelegate.m */,
 				D94F22C0285A4D2500E22457 /* SceneDelegate.h */,
 				D94F22C1285A4D2500E22457 /* SceneDelegate.m */,
-				D94F22C3285A4D2500E22457 /* ViewController.h */,
-				D94F22C4285A4D2500E22457 /* ViewController.m */,
 				D94F22C6285A4D2500E22457 /* Main.storyboard */,
-				D9F4793A285C52D70048AD25 /* CollectionCell.h */,
-				D9F4793B285C52D70048AD25 /* CollectionCell.m */,
-				D9F47934285C52360048AD25 /* CollectionViewController.h */,
-				D9F47935285C52360048AD25 /* CollectionViewController.m */,
-				D9CF9FA2285A8B0C00213C2B /* MovieCell.h */,
-				D9CF9FA3285A8B0C00213C2B /* MovieCell.m */,
-				D94F22F2285A566F00E22457 /* MovieViewController.h */,
-				D94F22F3285A566F00E22457 /* MovieViewController.m */,
 				D94F22C9285A4D2600E22457 /* Assets.xcassets */,
 				D94F22CB285A4D2600E22457 /* LaunchScreen.storyboard */,
 				D94F22CE285A4D2600E22457 /* Info.plist */,
 				D94F22CF285A4D2600E22457 /* main.m */,
-				D9F47931285C14440048AD25 /* DetailsViewController.h */,
-				D9F47932285C14440048AD25 /* DetailsViewController.m */,
 			);
 			path = Flixter;
 			sourceTree = "<group>";
@@ -199,6 +189,32 @@
 				D94F22E5285A4D2600E22457 /* FlixterUITestsLaunchTests.m */,
 			);
 			path = FlixterUITests;
+			sourceTree = "<group>";
+		};
+		D9B21FBC285FAC480019191D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D9F4793A285C52D70048AD25 /* CollectionCell.h */,
+				D9F4793B285C52D70048AD25 /* CollectionCell.m */,
+				D9CF9FA2285A8B0C00213C2B /* MovieCell.h */,
+				D9CF9FA3285A8B0C00213C2B /* MovieCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D9B21FBD285FAC550019191D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9F47932285C14440048AD25 /* DetailsViewController.m */,
+				D9F47931285C14440048AD25 /* DetailsViewController.h */,
+				D94F22F3285A566F00E22457 /* MovieViewController.m */,
+				D94F22F2285A566F00E22457 /* MovieViewController.h */,
+				D94F22C4285A4D2500E22457 /* ViewController.m */,
+				D94F22C3285A4D2500E22457 /* ViewController.h */,
+				D9F47935285C52360048AD25 /* CollectionViewController.m */,
+				D9F47934285C52360048AD25 /* CollectionViewController.h */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

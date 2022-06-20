@@ -28,6 +28,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.search.delegate = self;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     [self fetchMovies];
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -106,24 +107,19 @@
 
 // search bar does not work
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
     if (searchText.length != 0) {
-        
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
             return [evaluatedObject containsString:searchText];
         }];
         self.filteredMovie = [self.movies filteredArrayUsingPredicate:predicate];
-        
         NSLog(@"%@", self.filteredMovie);
-        
     }
     else {
         self.filteredMovie = self.movies;
     }
-    
     [self.tableView reloadData];
- 
 }
+
 
 
 @end
